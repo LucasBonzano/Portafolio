@@ -1,5 +1,7 @@
 import Navbar from './componentes/navbar.js';
 import Inicio from './componentes/inicio.js';
+import SobreMi from './componentes/sobremi.js';
+import Proyectos from './componentes/proyectos.js';
 
 
 const App = () => {
@@ -25,24 +27,14 @@ const App = () => {
       <div className="ml-60 flex-1 overflow-hidden">
         <Inicio
           nombre="Lucas Bonzano"
-          descripcion="Soy un estudiante de ing en sistemas y Técnico Superior en Programación, muy apasionado por la tecnología en general, con muchas ganas de aprender y trabajar en equipo."
+          titulo="Desarrollador Web"
           tecnologias={tecnologias}
         />
-        <section id="sobre-mi" className="h-screen bg-white p-8">
-          <h1 className="text-4xl font-bold">Sobre mí</h1>
-          <p className="mt-4 text-lg">Conoce más sobre mí aquí.</p>
+        <section id="sobre-mi" className=" bg-white p-8">
+          <SobreMi/>
         </section>
-        <section id="proyectos" className="h-screen bg-gray-100 p-8">
-          <h1 className="text-4xl font-bold">Proyectos</h1>
-          <p className="mt-4 text-lg">
-            Estos son algunos de mis proyectos destacados.
-          </p>
-        </section>
-        <section id="contacto" className="h-screen bg-white p-8">
-          <h1 className="text-4xl font-bold">Contacto</h1>
-          <p className="mt-4 text-lg">
-            Puedes contactarme a través de esta sección.
-          </p>
+        <section id="proyectos" className=" bg-gray-100 p-8">
+          <Proyectos/>
         </section>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Tecnologia {
   nombre: string;
@@ -26,9 +26,18 @@ const Carousel: React.FC<CarouselProps> = ({ tecnologias }) => {
     setSelectedIndex(nextIndex);
   };
 
+  // Desplazamiento automático cada 2 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      selectNewImage(true); // Avanzar al siguiente elemento
+    }, 2000);
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar
+  }, [selectedIndex]);
+
   return (
-    <div className="relative w-full h-96 overflow-hidden bg-gray-100 p-8">
-        <h1 className="text-4xl font-bold text-gray-800">Tecnologias que uso:</h1>
+    <div className="relative w-full h-64 overflow-hidden bg-gray-100 p-8">
+      <h1 className="text-2xl font-bold text-gray-800">Tecnologías que uso:</h1>
       {/* Galería */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
@@ -36,7 +45,6 @@ const Carousel: React.FC<CarouselProps> = ({ tecnologias }) => {
           transform: `translateX(-${selectedIndex * 33.33}%)`, // Ajustar el porcentaje según la cantidad de elementos
         }}
       >
-        {/* Imagen anterior */}
         {tecnologias.map((tecnologia, index) => (
           <div
             key={index}
@@ -46,26 +54,13 @@ const Carousel: React.FC<CarouselProps> = ({ tecnologias }) => {
             <img
               src={tecnologia.icono}
               alt={tecnologia.nombre}
-              className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain"
             />
             <p className="mt-4 text-lg font-medium text-gray-700">{tecnologia.nombre}</p>
           </div>
         ))}
       </div>
 
-      {/* Botones de navegación */}
-      <button
-        onClick={() => selectNewImage(false)}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full hover:bg-gray-400 transition"
-      >
-        {"<"}
-      </button>
-      <button
-        onClick={() => selectNewImage(true)}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-300 p-2 rounded-full hover:bg-gray-400 transition"
-      >
-        {">"}
-      </button>
     </div>
   );
 };

@@ -4,7 +4,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 h-full bg-gray-800 text-white w-60 flex flex-col justify-between py-8">
       <div className="flex flex-col items-center">
-        <h1 className="text-2xl font-bold mb-10">Mi Portafolio</h1>
         <ul className="space-y-6">
           <li>
             <a href="#inicio" className="text-lg hover:text-teal-400">
@@ -19,11 +18,6 @@ const Navbar = () => {
           <li>
             <a href="#proyectos" className="text-lg hover:text-teal-400">
               Proyectos
-            </a>
-          </li>
-          <li>
-            <a href="#contacto" className="text-lg hover:text-teal-400">
-              Contacto
             </a>
           </li>
         </ul>
