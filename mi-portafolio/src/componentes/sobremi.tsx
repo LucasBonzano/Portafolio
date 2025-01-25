@@ -5,22 +5,16 @@ const SobreMi = () => {
   return (
     <section id="sobre-mi" className="bg-white px-6 lg">
       <div className="max-w-6xl mx-auto gap-12 ">
-        {/* Imagen */}
-        <div className="flex justify-center items-center flex-col ">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Sobre mí</h1>
-          <p className="text-lg text-gray-600 leading-relaxed mb-6">
-            Soy Lucas Bonzano, un estudiante de grado superior de la carrera ingenieria en sistemas, muy apasionado desde chico por toda la tecnologia y cuento con muchas ganas de mejorar mis conocimientos y trabajar en equipo para ser el mejor desarrollador y la mejor persona que pueda ser.
-            Ademas de programar me gustan mucho los videojuegos y todo lo que tenga algo de logica en el medio como el ajedrez o las matematicas.
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl font-semibold text-gray-800 mb-4">Estudios y Certificaciones:</h1>
-          <Estudios/>
-        </div>
-
-        {/* Texto */}
-        <div className="flex mb-4">
-          <div className="m-2 w-[50%]">
+        <div className="flex flex-row mb-4">
+          <div className="flex justify-center items-center flex-col w-[50%]">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">Sobre mí</h1>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              Soy Lucas Bonzano, un estudiante de grado superior de la carrera ingenieria en sistemas, muy apasionado desde chico por la tecnologia con mucho foco por entender como funcionan las cosas tecnologicas y cuento con muchas ganas de mejorar mis conocimientos y trabajar en equipo para ser el mejor desarrollador y la mejor persona que pueda ser.
+              Ademas de programar me gustan mucho los videojuegos y todo lo que tenga algo de logica en el medio como el ajedrez o las matematicas.
+            </p>
+          </div>
+          <div className="flex flex-col p-6">
+          <div className="m-2">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Hard Skills:
             </h2>
@@ -31,7 +25,7 @@ const SobreMi = () => {
               <li>Trabajo en equipo, Pensamiento Crítico y resolución de problemas</li>
             </ul>
           </div>
-          <div className="m-2 w-[50%]">
+          <div className="m-2 ">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Soft Skills:
             </h2>
@@ -43,6 +37,11 @@ const SobreMi = () => {
               <li>autoaprendizaje</li>
             </ul>
           </div>
+          </div>
+        </div>
+        <div>
+          <h1 className="text-3xl font-semibold text-gray-800 mb-4">Estudios y Certificaciones:</h1>
+          <Estudios/>
         </div>
       </div>
     </section>
