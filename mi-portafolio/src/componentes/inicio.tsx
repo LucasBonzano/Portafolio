@@ -1,57 +1,49 @@
-import React from "react";
-import Carousel from "./carrousel";
-import DescargarCV from "./descargarcv";
+import foto from "../assets/FotoLucas.jpeg";
+import { perfil } from "../data/cv";
 
-interface Tecnologia {
-  nombre: string;
-  icono: string;
-}
-
-interface InicioProps {
-  nombre: string;
-  titulo: string;
-  tecnologias: Tecnologia[];
-}
-
-const Inicio: React.FC<InicioProps> = ({ nombre, titulo, tecnologias }) => {
+const Inicio = () => {
   return (
-    <section id="inicio" className="bg-gray-800 text-center flex flex-col justify-center aling-center">
-      {/* Nombre y descripción */}
-      <div className="p-8 flex items-center justify-center flex-row">
-        <img
-            src="src\assets\FotoLucas.jpeg"
-            alt="Foto de Lucas Bonzano"
-            className="rounded-full shadow-lg w-48 h-48 lg:w-64 lg:h-64"
-        />
-        <div className="flex flex-col">
-          <h1 className="mt-4 text-4xl text-yellow-600">{titulo}</h1>
-          <h3 className="text-4xl font-bold text-white">{nombre}</h3>
-          <p className="text-gray-600">Full stack React & Django</p>
-          <div className="">
-            <span className="sm:m-3">
-              <button
-                type="button"
-                className="inline-flex items-center rounded-md bg-yellow-500 hover:bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                <a href="https://www.linkedin.com/in/lucas-miguel-bonzano-a2b3a0271/">Linked in</a>
-              </button>
-            </span>
-            <span className="sm:m-3">
-              <button
-                type="button"
-                className="inline-flex items-center rounded-md bg-yellow-500 hover:bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                <a href="https://github.com/LucasBonzano">Git Hub</a>
-              </button>
-            </span>
-            <DescargarCV/>
-          </div>
-        </div>
-      </div>
+    <section id="inicio" className="pt-20 pb-16 sm:pt-28 sm:pb-24 text-center">
+      <img
+        src={foto}
+        alt="Foto de Lucas Bonzano"
+        className="mx-auto w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover ring-1 ring-rule ring-offset-8 ring-offset-paper"
+      />
+      <h1 className="mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.05]">
+        {perfil.nombre}
+      </h1>
+      <p className="mt-5 text-lg sm:text-xl font-medium">{perfil.rol}</p>
+      <p className="mt-1 text-muted">{perfil.especialidad}</p>
 
-      {/* Galería */}
-      <div className="w-full">
-        <Carousel tecnologias={tecnologias} />
+      <p className="mt-6 inline-flex items-center gap-2 text-sm text-muted">
+        <span className="status-ok w-2 h-2 rounded-full bg-ok" aria-hidden="true" />
+        Actualmente en Coetec – Banco del Sol, {perfil.ubicacion}
+      </p>
+
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-sm font-medium">
+        <a
+          href={perfil.cv}
+          download="Lucas-Bonzano-CV.pdf"
+          className="px-5 py-2.5 rounded-full bg-ink text-white hover:bg-accent transition-colors"
+        >
+          Descargar CV
+        </a>
+        <a
+          href={perfil.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-5 py-2.5 rounded-full border border-rule hover:border-ink transition-colors"
+        >
+          LinkedIn
+        </a>
+        <a
+          href={perfil.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-5 py-2.5 rounded-full border border-rule hover:border-ink transition-colors"
+        >
+          GitHub
+        </a>
       </div>
     </section>
   );

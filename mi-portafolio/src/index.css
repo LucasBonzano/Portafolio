@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01";
+  }
+  ::selection {
+    @apply bg-accent text-white;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-accent rounded-sm;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-sm font-semibold text-muted mb-8;
+  }
+}
+
+/* Latido del estado "en curso", como un job en ejecución */
+@keyframes pulse-ok {
+  0% { box-shadow: 0 0 0 0 rgb(46 139 87 / 0.45); }
+  70% { box-shadow: 0 0 0 8px rgb(46 139 87 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(46 139 87 / 0); }
+}
+.status-ok {
+  animation: pulse-ok 2.4s ease-out infinite;
+}
